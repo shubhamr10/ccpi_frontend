@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@import "assets/scss/function";
+@import "assets/scss/global";
+@import "assets/scss/fonts";
+
+@import "assets/scss/layouts/notFound";
+@import "assets/scss/layouts/landingPage";
