@@ -14,7 +14,7 @@ const Routing = () => {
             <Routes>
                 <Route exact path={"/"} element={<LandingPage/>} />
 
-                <Route exact path={"/"} element={
+                <Route exact path={"/home"} element={
                     <PrivateRoute>
                         <Dashboard/>
                     </PrivateRoute>

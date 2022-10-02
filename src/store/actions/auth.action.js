@@ -7,10 +7,11 @@ import {setAlert} from "./alert.action";
 export const login = (formData) => async dispatch => {
     try{
         let { data } = await axios.post(LOGIN_API, formData);
-        if(data.token){
+
+        if(data.success){
             dispatch({
                 type:LOGIN_SUCCESS,
-                payload:data
+                payload:data.data
             });
         }
     } catch (e) {
@@ -22,6 +23,5 @@ export const login = (formData) => async dispatch => {
         dispatch({
             type:LOGIN_FAILED
         })
-
     }
 }

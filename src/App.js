@@ -3,10 +3,14 @@ import {Provider} from "react-redux";
 import store from "./store/store";
 import Routing from "./components/routing/Routing";
 import setAuthTokenUtils from "./utils/setAuthToken.utils";
+import {LOGIN_SUCCESS} from "./store/types";
 
 if(localStorage.token){
     setAuthTokenUtils(localStorage.token);
-    // store.dispatch()
+     store.dispatch({
+         type:LOGIN_SUCCESS,
+         payload: localStorage.token
+     })
 }
 
 const App = () => {
