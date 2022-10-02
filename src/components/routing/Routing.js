@@ -5,7 +5,7 @@ import PrivateRoute from "./PrivateRoute";
 import LandingPage from "../layouts/LandingPage";
 import NotFound from "../layouts/NotFound";
 import Dashboard from "../Dashboard/Dashboard";
-
+import Programme from "../Programme/Programme";
 
 
 const Routing = () => {
@@ -17,6 +17,11 @@ const Routing = () => {
                 <Route exact path={"/home"} element={
                     <PrivateRoute>
                         <Dashboard/>
+                    </PrivateRoute>
+                } />
+                <Route exact path={"/programme"} element={
+                    <PrivateRoute>
+                        <Programme/>
                     </PrivateRoute>
                 } />
 
