@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 
-const Programme = () => {
-    const [state, setState] = useState('LP');
+const Information = () => {
+    const [state, setState] = useState('LN');
     return (
         <div className={"container-fluid"}>
             <div className="row">
                 <div className="col-sm-2 my-2">
                     <div className="namespaceContainer">
                         <ul className="list-group">
-                            <li style={{cursor:"pointer"}} className={`list-group-item ${state === 'LP'  ? "active" : ""}`} onClick={() => setState('LP')}>List Programmes</li>
-                            <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'LS'  ? "active" : ""}`} onClick={() => setState('LS')}>List Subjects</li>
-                            <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'CP'  ? "active" : ""}`} onClick={() => setState('CP')}>Create Programmes</li>
-                            <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'CS'  ? "active" : ""}`} onClick={() => setState('CS')}>Create Subjects</li>
+                            <li style={{cursor:"pointer"}} className={`list-group-item ${state === 'LN'  ? "active" : ""}`} onClick={() => setState('LN')}>List Notices</li>
+                            <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'LA'  ? "active" : ""}`} onClick={() => setState('LA')}>List Announcements</li>
+                            <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'CN'  ? "active" : ""}`} onClick={() => setState('CN')}>Create Notices</li>
+                            <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'CA'  ? "active" : ""}`} onClick={() => setState('CA')}>Create Announcements</li>
                         </ul>
                     </div>
                 </div>
@@ -31,4 +31,4 @@ const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
     role:state.auth.role
 })
-export default connect(mapStateToProps, {})(Programme);
+export default connect(mapStateToProps, {})(Information);

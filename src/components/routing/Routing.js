@@ -7,6 +7,8 @@ import NotFound from "../layouts/NotFound";
 import Dashboard from "../Dashboard/Dashboard";
 import Programme from "../Programme/Programme";
 import Centre from "../Centre/Centre";
+import User from "../Users/User";
+import Information from "../Information/Information";
 
 import ChatRoom from "../Chatroom/Chatroom";
 
@@ -19,6 +21,11 @@ const Routing = () => {
                 <Route exact path={"/home"} element={
                     <PrivateRoute>
                         <Dashboard/>
+                    </PrivateRoute>
+                } />
+                <Route exact path={"/users"} element={
+                    <PrivateRoute>
+                        <User/>
                     </PrivateRoute>
                 } />
                 <Route exact path={"/programme"} element={
@@ -34,6 +41,11 @@ const Routing = () => {
                 <Route exact path={"/centre"} element={
                     <PrivateRoute>
                         <Centre/>
+                    </PrivateRoute>
+                } />
+                <Route exact path={"/information"} element={
+                    <PrivateRoute>
+                        <Information/>
                     </PrivateRoute>
                 } />
 

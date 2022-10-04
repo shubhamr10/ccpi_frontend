@@ -24,14 +24,14 @@ const NavBar = ({logout, role}) => {
                         {
                             (roleName !== "Teacher" && roleName !== "Student") ? (
                                 <li className="nav-item ">
-                                    <a href={"/"}  className="nav-link text-light" >Users </a>
+                                    <a href={"/users"}  className="nav-link text-light" >Users </a>
                                 </li>
                             ) : null
                         }
                         {
                             (roleName !== "Teacher" && roleName !== "Student") ? (
                                 <li className="nav-item ">
-                                    <a href={"/"}  className="nav-link text-light" >Information </a>
+                                    <a href={"/information"}  className="nav-link text-light" >Information </a>
                                 </li>
                             ) : null
                         }
@@ -45,7 +45,7 @@ const NavBar = ({logout, role}) => {
                         {
                             (roleName !== "Teacher" && roleName !== "Student" && roleName !== "Manager") ? (
                                 <li className="nav-item ">
-                                    <a href={"/"}  className="nav-link text-light" >Programmes </a>
+                                    <a href={"/programme"}  className="nav-link text-light" >Programmes </a>
                                 </li>
                             ) : null
                         }
