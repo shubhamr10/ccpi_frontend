@@ -1,5 +1,7 @@
 .namespaceContainer{
-
+  font-family: 'Roboto', sans-serif;
+  font-size: vw(12px);
+  font-weight:500;
 }
 
 .roomsMainContainer{
@@ -15,12 +17,14 @@
     width: 100%;
     height: 80%;
     height: 80vh;
+    overflow: auto;
 
     .user-name-message{
       font-family: 'Roboto', sans-serif;
-      font-size: vw(13px);
+      font-size: vw(11px);
       font-weight: lighter;
       padding: vw(7px);
+      padding-bottom: 0;
     }
 
     .message-box{

@@ -1,8 +1,12 @@
 import React from 'react';
 import ignouLogo from "../../assets/img/ignou_logo.png";
+import { connect } from "react-redux";
+import { logout } from "../../store/actions/auth.action";
 
-
-const NavBar = () => {
+// "Administrator" , "Manager", "Teacher", "Owner", "Student"
+const NavBar = ({logout, role}) => {
+    const roleName = role.role_name;
+    console.log(roleName)
     return (
         <div className={"container-fluid"}>
             <nav className={"navbar navbar-expand-lg navbar-dark bg-primary"}>
@@ -15,26 +19,45 @@ const NavBar = () => {
                     </a>
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item active">
-                            <a href={"/"}  className="nav-link text-light" >Home <span className="sr-only">("545")</span></a>
+                            <a href={"/"}  className="nav-link text-light" >Home </a>
                         </li>
-                        <li className="nav-item ">
-                            <a href={"/"}  className="nav-link text-light" >Users <span className="sr-only">("545")</span></a>
-                        </li>
-                        <li className="nav-item ">
-                            <a href={"/"}  className="nav-link text-light" >Information <span className="sr-only">("545")</span></a>
-                        </li>
-                        <li className="nav-item ">
-                            <a href={"/"}  className="nav-link text-light" >Centres <span className="sr-only">("545")</span></a>
-                        </li>
-                        <li className="nav-item ">
-                            <a href={"/programme"} className="nav-link text-light" >Programmes <span className="sr-only">("545")</span></a>
-                        </li>
-                        <li className="nav-item ">
-                            <a href={"/chat-room"} className="nav-link text-light" >Chatroom <span className="sr-only">("545")</span></a>
-                        </li>
-
+                        {
+                            (roleName !== "Teacher" && roleName !== "Student") ? (
+                                <li className="nav-item ">
+                                    <a href={"/"}  className="nav-link text-light" >Users </a>
+                                </li>
+                            ) : null
+                        }
+                        {
+                            (roleName !== "Teacher" && roleName !== "Student") ? (
+                                <li className="nav-item ">
+                                    <a href={"/"}  className="nav-link text-light" >Information </a>
+                                </li>
+                            ) : null
+                        }
+                        {
+                            (roleName !== "Teacher" && roleName !== "Student" && roleName !== "Manager") ? (
+                                <li className="nav-item ">
+                                    <a href={"/centre"}  className="nav-link text-light" >Centres </a>
+                                </li>
+                            ) : null
+                        }
+                        {
+                            (roleName !== "Teacher" && roleName !== "Student" && roleName !== "Manager") ? (
+                                <li className="nav-item ">
+                                    <a href={"/"}  className="nav-link text-light" >Programmes </a>
+                                </li>
+                            ) : null
+                        }
+                        {
+                            (roleName === "Teacher" || roleName === "Student") ? (
+                                <li className="nav-item ">
+                                    <a href={"/chat-room"}  className="nav-link text-light" >Chatroom </a>
+                                </li>
+                            ) : null
+                        }
                         <li className="nav-item">
-                            <a href={"/"} className="nav-link text-light" >Logout <span className="sr-only">("545")</span></a>
+                            <a href={"/"} className="nav-link text-light" onClick={() => logout()}>Logout </a>
                         </li>
                     </ul>
                 </div>
@@ -43,4 +66,9 @@ const NavBar = () => {
     );
 };
 
-export default NavBar;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    role:state.auth.role
+})
+
+export default connect(mapStateToProps, {logout})(NavBar);
