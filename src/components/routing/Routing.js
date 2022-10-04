@@ -7,6 +7,7 @@ import NotFound from "../layouts/NotFound";
 import Dashboard from "../Dashboard/Dashboard";
 import Programme from "../Programme/Programme";
 
+import ChatRoom from "../Chatroom/Chatroom";
 
 const Routing = () => {
     return (
@@ -22,6 +23,11 @@ const Routing = () => {
                 <Route exact path={"/programme"} element={
                     <PrivateRoute>
                         <Programme/>
+                    </PrivateRoute>
+                } />
+                <Route exact path={"/chat-room"} element={
+                    <PrivateRoute>
+                        <ChatRoom/>
                     </PrivateRoute>
                 } />
 

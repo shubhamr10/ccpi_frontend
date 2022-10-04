@@ -29,6 +29,9 @@ const NavBar = () => {
                         <li className="nav-item ">
                             <a href={"/programme"} className="nav-link text-light" >Programmes <span className="sr-only">("545")</span></a>
                         </li>
+                        <li className="nav-item ">
+                            <a href={"/chat-room"} className="nav-link text-light" >Chatroom <span className="sr-only">("545")</span></a>
+                        </li>
 
                         <li className="nav-item">
                             <a href={"/"} className="nav-link text-light" >Logout <span className="sr-only">("545")</span></a>

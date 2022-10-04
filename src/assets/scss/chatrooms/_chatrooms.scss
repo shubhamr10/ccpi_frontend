@@ -1,0 +1,43 @@
+.namespaceContainer{
+
+}
+
+.roomsMainContainer{
+}
+
+.messageMainContainer{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: vw(10px);
+
+  .messageContainer{
+    width: 100%;
+    height: 80%;
+    height: 80vh;
+
+    .user-name-message{
+      font-family: 'Roboto', sans-serif;
+      font-size: vw(13px);
+      font-weight: lighter;
+      padding: vw(7px);
+    }
+
+    .message-box{
+      //height: vw(50px);
+      max-width: 80%;
+      width: fit-content;
+      border: 1px;
+      background: #aab8cb;
+      border: 2px solid white ;
+      border-radius: vw(7px);
+      padding: vw(7px);
+      font-family: 'Roboto', sans-serif;
+      font-size: vw(12px);
+      margin-bottom: vw(7px);
+    }
+  }
+  .inputContainer{
+    width: 100%;
+  }
+}
