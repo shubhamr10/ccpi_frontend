@@ -17,10 +17,10 @@ const Information = () => {
                     </div>
                 </div>
                 <div className="col-sm-10 my-2">
-                    {/*{ state === 'LP' ? <ListCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'LS' ? <ListCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'CP' ? <CreateCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'CS' ? <CreateCentre ctype={state}/> : null}*/}
+                    {/*{ state === 'LP' ? <ListRegionalCentre ctype={state}/> : null}*/}
+                    {/*{ state === 'LS' ? <ListRegionalCentre ctype={state}/> : null}*/}
+                    {/*{ state === 'CP' ? <CreateRegionalCentre ctype={state}/> : null}*/}
+                    {/*{ state === 'CS' ? <CreateRegionalCentre ctype={state}/> : null}*/}
                 </div>
             </div>
         </div>

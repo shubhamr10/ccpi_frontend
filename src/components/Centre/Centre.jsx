@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
-import CreateCentre from "./CreateCentre";
-import ListCentre from "./ListCentre";
+import CreateRegionalCentre from "./CreateRegionalCentre";
+import ListRegionalCentre from "./ListRegionalCentre";
+import CreateStudyCentre from "./CreateStudyCentre";
+import ListStudyCentre from "./ListStudyCentre";
 
 const Centre = () => {
     const [state, setState] = useState('LSC');
@@ -19,10 +21,10 @@ const Centre = () => {
                     </div>
                 </div>
                 <div className="col-sm-10 my-2">
-                    { state === 'LRC' ? <ListCentre ctype={state}/> : null}
-                    { state === 'LSC' ? <ListCentre ctype={state}/> : null}
-                    { state === 'CRC' ? <CreateCentre ctype={state}/> : null}
-                    { state === 'CSC' ? <CreateCentre ctype={state}/> : null}
+                    { state === 'LRC' ? <ListRegionalCentre ctype={state}/> : null}
+                    { state === 'LSC' ? <ListStudyCentre ctype={state}/> : null}
+                    { state === 'CRC' ? <CreateRegionalCentre ctype={state}/> : null}
+                    { state === 'CSC' ? <CreateStudyCentre ctype={state}/> : null}
                 </div>
             </div>
         </div>
