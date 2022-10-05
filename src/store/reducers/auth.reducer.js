@@ -1,10 +1,11 @@
-import {GET_ROLES, LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT} from "../types";
+import {GET_ALL_USERS, GET_ROLES, LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT} from "../types";
 
 const initialState = {
     token:localStorage.getItem("token"),
     isAuthenticated:false,
     loading:true,
     user:null,
+    users:[],
     role:{}
 };
 
@@ -32,6 +33,11 @@ export default function authReducer(state = initialState, action ) {
             return {
                 ...state,
                 role:payload
+            }
+        case GET_ALL_USERS:
+            return {
+                ...state,
+                users:payload
             }
         default:
             return state;
