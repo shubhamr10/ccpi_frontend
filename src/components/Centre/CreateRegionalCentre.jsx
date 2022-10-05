@@ -26,6 +26,7 @@ const CreateRegionalCentre = ({ createCentre }) => {
             type:state.type,
             address:state.address
         };
+        createCentre(formData);
         setState({
             name:"",
             code:"",
@@ -33,7 +34,7 @@ const CreateRegionalCentre = ({ createCentre }) => {
             type:"SC",
             address:""
         });
-        createCentre(formData);
+
     }
     return (
         <div className={"container-fluid"}>

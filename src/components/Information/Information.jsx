@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
+import CreateAnnouncements from "./CreateInformation";
+import ListAnnouncements from "./ListAnnouncements";
+import ListNotices from "./ListNotices";
 
 const Information = () => {
     const [state, setState] = useState('LN');
@@ -9,18 +12,16 @@ const Information = () => {
                 <div className="col-sm-2 my-2">
                     <div className="namespaceContainer">
                         <ul className="list-group">
-                            <li style={{cursor:"pointer"}} className={`list-group-item ${state === 'LN'  ? "active" : ""}`} onClick={() => setState('LN')}>List Notices</li>
-                            <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'LA'  ? "active" : ""}`} onClick={() => setState('LA')}>List Announcements</li>
+                            <li style={{cursor:"pointer"}} className={`list-group-item ${state === 'LN'  ? "active" : ""}`} onClick={() => setState('LN')}>List Notices/Announcements</li>
                             <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'CN'  ? "active" : ""}`} onClick={() => setState('CN')}>Create Notices</li>
                             <li style={{cursor:"pointer"}}  className={`list-group-item ${state === 'CA'  ? "active" : ""}`} onClick={() => setState('CA')}>Create Announcements</li>
                         </ul>
                     </div>
                 </div>
                 <div className="col-sm-10 my-2">
-                    {/*{ state === 'LP' ? <ListRegionalCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'LS' ? <ListRegionalCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'CP' ? <CreateRegionalCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'CS' ? <CreateRegionalCentre ctype={state}/> : null}*/}
+                    { state === 'LN' ? <ListAnnouncements ctype={state}/> : null}
+                    { state === 'CN' ? <CreateAnnouncements ctype={state}/> : null}
+                    { state === 'CA' ? <CreateAnnouncements ctype={state}/> : null}
                 </div>
             </div>
         </div>

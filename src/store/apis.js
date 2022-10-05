@@ -8,3 +8,6 @@ export const GET_SUBJECTS = "/subjects/get-programme-subjects";
 export const REGIONAL_CENTRE_API = "/centres/rc";
 export const STUDY_CENTRE_API = "/centres/sc";
 export const CREATE_CENTRE = "/centres";
+
+export const INFORMATION_CREATE_API = "/info";
+export const GET_ALL_INFORMATION_API = "/info/list"
