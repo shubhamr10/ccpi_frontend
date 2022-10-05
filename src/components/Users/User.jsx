@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
+import CreateUsers from "./CreateUsers";
+import ListUser from "./ListUser";
 
 const User = () => {
-    const [state, setState] = useState('LS');
+    const [state, setState] = useState('CU');
     return (
         <div className={"container-fluid"}>
             <div className="row">
@@ -18,10 +20,11 @@ const User = () => {
                     </div>
                 </div>
                 <div className="col-sm-10 my-2">
-                    {/*{ state === 'LP' ? <ListCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'LS' ? <ListCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'CP' ? <CreateCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'CS' ? <CreateCentre ctype={state}/> : null}*/}
+                    { state === 'LA' ? <ListUser ctype={state}/> : null}
+                    { state === 'LM' ? <ListUser ctype={state}/> : null}
+                    { state === 'LT' ? <ListUser ctype={state}/> : null}
+                    { state === 'LS' ? <ListUser ctype={state}/> : null}
+                    { state === 'CU' ? <CreateUsers ctype={state}/> : null}
                 </div>
             </div>
         </div>

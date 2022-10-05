@@ -8,3 +8,10 @@ export const LOGOUT = "LOGOUT";
 export const USER = "USER";
 
 export const GET_ROLES = "GET_ROLES"
+export const GETALLROLES = "GETALLROLES";
+
+export const GET_ALL_PROGRAMMES = "GET_ALL_PROGRAMMES";
+export const GET_ALL_SUBJECTS = "GET_ALL_SUBJECTS";
+
+export const GET_ALL_REGIONAL_CENTRES = "GET_ALL_REGIONAL_CENTRES";
+export const GET_ALL_STUDY_CENTRES = "GET_ALL_STUDY_CENTRES";

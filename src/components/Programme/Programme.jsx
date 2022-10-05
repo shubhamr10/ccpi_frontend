@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
+import CreateProgrammes from "./CreateProgrammes";
+import ListProgrammes from "./ListProgrammes";
+import CreateSubjects from "./CreateSubjects";
+import ListSubjects from "./ListSubjects";
 
 const Programme = () => {
     const [state, setState] = useState('LP');
@@ -17,10 +21,10 @@ const Programme = () => {
                     </div>
                 </div>
                 <div className="col-sm-10 my-2">
-                    {/*{ state === 'LP' ? <ListCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'LS' ? <ListCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'CP' ? <CreateCentre ctype={state}/> : null}*/}
-                    {/*{ state === 'CS' ? <CreateCentre ctype={state}/> : null}*/}
+                    { state === 'LP' ? <ListProgrammes ctype={state}/> : null}
+                    { state === 'LS' ? <ListSubjects ctype={state}/> : null}
+                    { state === 'CP' ? <CreateProgrammes ctype={state}/> : null}
+                    { state === 'CS' ? <CreateSubjects ctype={state}/> : null}
                 </div>
             </div>
         </div>

@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+
+
 @import "assets/scss/function";
 @import "assets/scss/global";
 @import "assets/scss/fonts";
@@ -20,3 +22,6 @@ code {
 @import "assets/scss/layouts/landingPage";
 
 @import "assets/scss/chatrooms/chatrooms";
+
+@import "assets/scss/users/createUser";
+@import "assets/scss/users/listUser";
