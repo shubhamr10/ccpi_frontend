@@ -56,17 +56,17 @@ const CreateUsers = ({ createUser, getAllRoles, roles, getAllStudyCentres, getAl
         };
         console.log(formData)
         createUser(formData);
-        // setState({
-        //     name:"",
-        //     email:"",
-        //     role:"",
-        //     password:"Abcd@123",
-        //     programme:"",
-        //     regionalCentre:"",
-        //     studyCentre:"",
-        //     currentSemester:"",
-        //     subjects:[],
-        // });
+        setState({
+            name:"",
+            email:"",
+            role:"",
+            password:"Abcd@123",
+            programme:"",
+            regionalCentre:"",
+            studyCentre:"",
+            currentSemester:"",
+            subjects:[],
+        });
 
     }
 

@@ -14,3 +14,4 @@ export const GET_ALL_INFORMATION_API = "/info/list";
 
 export const CREATE_USER = "/users/create-user";
 export const CREATE_PROFILE = "/profile/create-profile"
+export const GET_USERS = "/users/get-user";

@@ -1,6 +1,6 @@
 import axios from "axios";
-import {CREATE_PROFILE, CREATE_USER, GET_ROLES_API, LOGIN_API} from "../apis";
-import {GET_ROLES, LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT, USER} from "../types";
+import {CREATE_PROFILE, CREATE_USER, GET_ROLES_API, GET_USERS, LOGIN_API} from "../apis";
+import {GET_ALL_USERS, GET_ROLES, LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT, USER} from "../types";
 import {setAlert} from "./alert.action";
 import jwtDecode from "jwt-decode";
 
@@ -100,6 +100,24 @@ export const createProfile = formData => async dispatch => {
         let { data } = await axios.post(CREATE_PROFILE,formData);
         if(data.success){
             window.alert("User created successfully");
+        }
+    } catch (e) {
+        console.error("LOGIN API error",e);
+        const { errors } = e.response.data;
+        if(Array.isArray(errors)){
+            errors.map(err => dispatch(setAlert(err.msg, "danger")));
+        }
+    }
+}
+
+export const getUsers = (role) => async dispatch => {
+    try{
+        let { data } = await axios.post(GET_USERS,{role:role});
+        if(data.success){
+            dispatch({
+                type:GET_ALL_USERS,
+                payload:data.data.list
+            })
         }
     } catch (e) {
         console.error("LOGIN API error",e);
