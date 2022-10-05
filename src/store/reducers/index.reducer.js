@@ -5,6 +5,7 @@ import rolesReducer from "./roles.reducers";
 import programmesReducer from "./programme.reducer";
 import centresReducer from "./centre.reducer";
 import informationReducer from "./information.reducer";
+import chatroomsReducer from "./chatrooms.reducer";
 
 export default combineReducers({
     alert:alertReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
     roles:rolesReducer,
     programme:programmesReducer,
     centre:centresReducer,
-    information:informationReducer
+    information:informationReducer,
+    chatroom:chatroomsReducer
 })

@@ -1,30 +1,45 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { connect } from "react-redux";
+import {getAllNameSpace} from "../../store/actions/chatroom.action";
+import {getAllRoom} from "../../store/actions/chatroom.action";
+import {getAllMessage} from "../../store/actions/chatroom.action";
+import {addMesaage} from "../../store/actions/chatroom.action";
 
-
-const Chatroom = () => {
+const Chatroom = ({ getAllNameSpace, getAllRoom, getAllMessage, addMesaage, namespaces, rooms, messages }) => {
+    const [state, setState] = useState({
+        nameSpace:"",
+        room:""
+    })
+    useEffect(() => {
+        getAllNameSpace();
+    }, [getAllNameSpace ]);
+    const onClick = (name, value) => {
+        setState({
+            ...state,
+            [name]:value
+        });
+        if(name === "nameSpace"){
+            getAllRoom(value);
+        }
+    }
     return (
         <div className={"container-fluid"}>
             <div className="row">
                 <div className="col-sm-2 my-2">
                     <div className="namespaceContainer">
                         <ul className="list-group">
-                            <li className="list-group-item active">Global</li>
-                            <li className="list-group-item">MCA#SEM-1</li>
-                            <li className="list-group-item">MCA#SEM-2</li>
-                            <li className="list-group-item">MCA#SEM-3</li>
-                            <li className="list-group-item">MCA#SEM-4</li>
-                            <li className="list-group-item">Personal</li>
+                            {
+                                namespaces.map((namespace, index) => ( <li key={index} onClick={() => onClick("nameSpace",namespace._id) } className={`list-group-item ${state.nameSpace === namespace._id ? 'active': ''}`} >{namespace.name}</li> ))
+                            }
                         </ul>
                     </div>
                 </div>
                 <div className="col-sm-2 my-2">
                     <div className="roomsMainContainer">
                         <ul className="list-group">
-                            <li className="list-group-item">Cras justo odio</li>
-                            <li className="list-group-item active">Dapibus ac facilisis in</li>
-                            <li className="list-group-item">Morbi leo risus</li>
-                            <li className="list-group-item">Porta ac consectetur ac</li>
-                            <li className="list-group-item">Vestibulum at eros</li>
+                            {
+                                rooms.map((room, index) => ( <li key={index} onClick={() => onClick("room",room._id) }   className={`list-group-item ${state.room === room._id ? 'active': ''}`}>{room.name}</li> ))
+                            }
                         </ul>
                     </div>
                 </div>
@@ -148,4 +163,12 @@ const Chatroom = () => {
     );
 };
 
-export default Chatroom;
+const mapStateToProps = state => ({
+    namespaces:state.chatroom.namespaces,
+    rooms:state.chatroom.rooms,
+    messages:state.chatroom.messages,
+})
+
+export default connect(mapStateToProps, {
+    getAllNameSpace, getAllRoom, getAllMessage, addMesaage
+})(Chatroom);
