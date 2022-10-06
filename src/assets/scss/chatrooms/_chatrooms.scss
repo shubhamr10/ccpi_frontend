@@ -22,6 +22,13 @@
     height: 80vh;
     overflow: auto;
 
+    .myUser{
+      text-align: right;
+    }
+    .myMessage{
+      margin-left: auto;
+    }
+
     .user-name-message{
       font-family: 'Roboto', sans-serif;
       font-size: vw(11px);

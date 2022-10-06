@@ -4,12 +4,15 @@ import {getAllNameSpace} from "../../store/actions/chatroom.action";
 import {getAllRoom} from "../../store/actions/chatroom.action";
 import {getAllMessage} from "../../store/actions/chatroom.action";
 import {addMesaage} from "../../store/actions/chatroom.action";
+// import { io } from "socket.io-client";
 
-const Chatroom = ({ getAllNameSpace, getAllRoom, getAllMessage, addMesaage, namespaces, rooms, messages }) => {
+const Chatroom = ({ getAllNameSpace, getAllRoom, getAllMessage, addMesaage, namespaces, rooms, messages, user }) => {
+    // var socket = io("ws://localhost:3001");
     const [state, setState] = useState({
         nameSpace:"",
         room:""
-    })
+    });
+    const [message, setMessage] = useState('');
     useEffect(() => {
         getAllNameSpace();
     }, [getAllNameSpace ]);
@@ -21,7 +24,24 @@ const Chatroom = ({ getAllNameSpace, getAllRoom, getAllMessage, addMesaage, name
         if(name === "nameSpace"){
             getAllRoom(value);
         }
+        if(name === "room"){
+            getAllMessage(value);
+        }
     }
+
+    const onChange = e => {
+        setMessage(e.target.value)
+    }
+    const onSubmit = e => {
+        e.preventDefault();
+        const formData = {
+            message:message,
+            room:state.room,
+        };
+        addMesaage(formData);
+        setMessage('');
+    }
+    console.log(messages, user);
     return (
         <div className={"container-fluid"}>
             <div className="row">
@@ -46,113 +66,22 @@ const Chatroom = ({ getAllNameSpace, getAllRoom, getAllMessage, addMesaage, name
                 <div className="col-sm-8">
                     <div className="messageMainContainer rounded">
                         <div className="messageContainer border p-2">
-                            <div className="col-sm-12">
-                                <div className="user-name-message">Teacher</div>
-                                <div className="message-box">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry.
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="user-name-message"  style={{textAlign:"right"}}>Shubham</div>
-                                <div className="message-box" style={{marginLeft:"auto"}}>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                    ever since the 1500s, when an unknown printer took a galley of
-                                    type and scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.
-                                    It was popularised in the 1960s with the release of Letraset
-                                    sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker
-                                    including versions of Lorem Ipsum..
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="user-name-message"  style={{textAlign:"right"}}>Shubham</div>
-                                <div className="message-box" style={{marginLeft:"auto"}}>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                    ever since the 1500s, when an unknown printer took a galley of
-                                    type and scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.
-                                    It was popularised in the 1960s with the release of Letraset
-                                    sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker
-                                    including versions of Lorem Ipsum..
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="user-name-message"  style={{textAlign:"right"}}>Shubham</div>
-                                <div className="message-box" style={{marginLeft:"auto"}}>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                    ever since the 1500s, when an unknown printer took a galley of
-                                    type and scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.
-                                    It was popularised in the 1960s with the release of Letraset
-                                    sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker
-                                    including versions of Lorem Ipsum..
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="user-name-message"  style={{textAlign:"right"}}>Shubham</div>
-                                <div className="message-box" style={{marginLeft:"auto"}}>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                    ever since the 1500s, when an unknown printer took a galley of
-                                    type and scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.
-                                    It was popularised in the 1960s with the release of Letraset
-                                    sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker
-                                    including versions of Lorem Ipsum..
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="message-box" style={{marginLeft:"auto"}}>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                    ever since the 1500s, when an unknown printer took a galley of
-                                    type and scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.
-                                    It was popularised in the 1960s with the release of Letraset
-                                    sheets containing Lorem Ipsum passages, and more recently
-                                    with desktop publishing software like Aldus PageMaker
-                                    including versions of Lorem Ipsum..
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="message-box">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry.
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="message-box">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry.
-                                </div>
-                            </div>
-                            <div className="col-sm-12">
-                                <div className="message-box">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry.
-                                </div>
-                            </div>
+                            {
+                                state.nameSpace && state.room &&  messages.map((message, index) => (
+                                    <div className="col-sm-12" key={index}>
+                                        <div className={`user-name-message ${message.user._id === user.user.id ? 'myUser' : ''}`}>{message.user.name}</div>
+                                        <div className={`message-box ${message.user._id === user.user.id ? 'myMessage' : ''}`}>{message.message}</div>
+                                    </div>
+                                ))
+                            }
                         </div>
                         <div className="inputContainer my-2">
                             <div className="row">
                                 <div className="col-sm-10">
-                                    <input type="text" style={{width:"100%", height:"100%"}}/>
+                                    <input type="text" name={"message"} value={message} onChange={onChange} style={{width:"100%", height:"100%"}}/>
                                 </div>
                                 <div className="col-sm-2" style={{textAlign:"right"}}>
-                                    <button className="btn btn-primary btn-lg" type="submit">Send</button>
+                                    <button className="btn btn-primary btn-lg" onClick={onSubmit}>Send</button>
                                 </div>
                             </div>
                         </div>
@@ -164,6 +93,7 @@ const Chatroom = ({ getAllNameSpace, getAllRoom, getAllMessage, addMesaage, name
 };
 
 const mapStateToProps = state => ({
+    user:state.auth.user,
     namespaces:state.chatroom.namespaces,
     rooms:state.chatroom.rooms,
     messages:state.chatroom.messages,

@@ -3,8 +3,9 @@ import {Provider} from "react-redux";
 import store from "./store/store";
 import Routing from "./components/routing/Routing";
 import setAuthTokenUtils from "./utils/setAuthToken.utils";
-import {LOGIN_SUCCESS} from "./store/types";
+import {LOGIN_SUCCESS, USER} from "./store/types";
 import {getMyRole} from "./store/actions/auth.action";
+import jwtDecode from "jwt-decode";
 
 if(localStorage.token){
     setAuthTokenUtils(localStorage.token);
@@ -12,6 +13,11 @@ if(localStorage.token){
          type:LOGIN_SUCCESS,
          payload: localStorage.token
      });
+    const decodedToken = jwtDecode(localStorage.token);
+    store.dispatch({
+        type:USER,
+        payload:decodedToken
+    })
      store.dispatch(getMyRole());
 }
 
